@@ -1,3 +1,5 @@
+![alt text](https://github.com/abdo96/sql-queries/blob/master/paper_store_p%26p.png)
+
 # A Toy Database
 
 Here is a toy database which models an paper-store.  In this database, we have falling into three categories: information about the company, information about customers and their orders, and information about the products being sold.
