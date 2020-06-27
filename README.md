@@ -48,7 +48,7 @@ as you're only running `SELECT` queries.  For example, what does the data
 in the invoices table look like?  Well, let's look at a 5 rows
 
 ```sql
-SELECT * FROM invoices LIMIT 5;
+SELECT * FROM accounts LIMIT 5;
 ```
 
 That's what we mean by "explore."
