@@ -1,12 +1,12 @@
 # A Toy Database
 
-Here is a toy database which models an online music store.  In this database, we have falling into three categories: information about the company, information about customers and their orders, and information about the products being sold.
+Here is a toy database which models an paper-store.  In this database, we have falling into three categories: information about the company, information about customers and their orders, and information about the products being sold.
 
 You'll be editing the `queries.sql` file, which consists of a series of
 "plain English" sentences.  Your job is to translate those sentences into a
 single SQL `SELECT` query.  Don't worry if you can't do it — take your best shot!
 
-The database itself is contained in the `music-store.db` file.  The `import.sql`
+The database itself is contained in the `papers_store_p&p.db` file.  The `import.sql`
 file contains the raw SQL used to generate the toy database.  You don't need to
 touch this file, but it's here in case we wind up needing it.  You'll be doing
 your work in `queries.sql`.
@@ -93,33 +93,27 @@ Here are the tables, organized by high-level purpose.
 
 ### Information About The Products
 
-1. `albums` are the albums our store is selling
-2. `artists` are all the artists
-3. `tracks` are all the tracks, containing a column that tells us which album the track belongs to.
-4. `media_types` tell us what format a track is in, e.g., MP3, Apple Audio, etc.
-5. `genres` are a list of genres.
-6. `playlists` are, well, playlists.  A play list has many tracks and a single track can belong to many playlists.
-7. `playlist_tracks` tells us which tracks belong to which playlists
+1. `accounts` are the account of each company buy the paper.
+2. `orders` are each company has quantities and prices of each type of paper to be ordered.
+3. `region` is the paper company has four regions such as West,NorthWest,etc.
+4. `sales_reps` tell us about sales representative in four different regions.
+5. `web_events` are list of channels ,like Facebook or Twitter,etc, to attract and advetise for seller companies.
 
 ### Information About Customers and Their Orders
 
-1. `customers` are our customer records and they may or may not have an assigned "customer support representative"
-2. `invoices` are a list of specific customer orders
-3. `invoice_lines` are the line-items on specific invoices
-
-### Information About The Company
-
-1. `employees` contains information about our company's employees.  This is mostly used to assign support representatives to customers.
+1. `total` are the total sales for each seller company.
+2. `(standerd-gloss-poster)-amt_usd` are different types of selling papers and their proces.
+3. `(standerd-gloss-poster)-qty` are the quantity of each type of paper to be ordered.
 
 ## One Key Idea
 
 One of the key ideas in how relational databases like SQLite3 and MySQL organize data is that we try to minimize redundancy by using references to other data rather than duplicating that data between different tables.
 
-For example, every track belongs to one (and only one) album.  An album has its own associated information, like album title, publication date, and so on.  Each track also has its own associated information, like track title, track position, and duration.  We want to be able to ask questions like "What is the title of the album on which track X appears?"
+For example, every order belongs to one (and only one) account.  An account has its own associated information, like album id,name, and so on.  Each order also has its own associated information, like occurred_at,standard_qty, and standard_amt_usd.  We want to be able to ask questions like "What is the title of the account on which order X appears?"
 
-If you imagine a spreadsheet with a bunch of track listings, one way to achieve this would be to have an "Album Title" column and to answer this question we would just look at the value in the "Album Title" column for track X.  Every track on the same album would have the same value in the "Album Title" column, although heaven help us if there are two separate albums with the same title!
+If you imagine a spreadsheet with a bunch of order listings, one way to achieve this would be to have an "account id" column and to answer this question we would just look at the value in the "account Id" column for order X.  Every order on the same account would have the same value in the "account Id" column, although heaven help us if there are two separate albums with the same id!
 
-This is not how we store information in a relational database.  Rather than storing album-related information in the same table as track-related information, we store album-related information in an "albums" table and track-related information in a "tracks" table.  We assign each track and album a unique ID.  In the "tracks" table we would when have an `album_id` column containing the unique album ID as a *reference* or *pointer* to the relevant row in the "albums" table.
+This is not how we store information in a relational database.  Rather than storing account-related information in the same table as order-related information, we store account-related information in an "accounts" table and order-related information in a "orders" table.  We assign each order and account a unique id.  In the "orders" table we would when have an `account_id` column containing the unique account ID as a *reference* or *pointer* to the relevant row in the "accounts" table.
 
 Excel can do this, but it is too cumbersome for the most common tasks.  In a relational database like SQLite3 or MySQL, however, it is much easier to deal with.  In fact, SQL (the language) is counting on you storing your data this way.
 
