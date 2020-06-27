@@ -26,7 +26,7 @@ your work in `queries.sql`.
 See the `queries.sql`.  Open the database by running this in your terminal:
 
 ```bash
-sqlite3 music-store.db
+sqlite3 papers_store_p&p.db
 ```
 
 Once inside, type the following at the SQLite3 prompt
@@ -36,10 +36,10 @@ sqlite> .schema
 ```
 
 to list all the tables in the database.  To see the schema for a specific table,
-you can type, e.g., the `invoices` table
+you can type, e.g., the `accounts` table
 
 ```text
-sqlite> .schema invoices
+sqlite> .schema accounts
 ```
 
 Don't be afraid to explore the data in the tables to get a better feeling
