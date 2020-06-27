@@ -1,5 +1,3 @@
-![alt text](https://github.com/abdo96/sql-queries/blob/master/paper_store_p%26p.png)
-
 # A Toy Database
 
 Here is a toy database which models an paper-store.  In this database, we have falling into three categories: information about the company, information about customers and their orders, and information about the products being sold.
@@ -12,6 +10,10 @@ The database itself is contained in the `papers_store_p&p.db` file.  The `import
 file contains the raw SQL used to generate the toy database.  You don't need to
 touch this file, but it's here in case we wind up needing it.  You'll be doing
 your work in `queries.sql`.
+
+
+## ERD
+![alt text](https://github.com/abdo96/sql-queries/blob/master/paper_store_p%26p.png)
 
 ## Contents
 
